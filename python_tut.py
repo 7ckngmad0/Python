@@ -3,6 +3,7 @@
 # ============================================
 # This tutorial covers essential Python concepts
 # for beginners with examples and explanations
+# PARANG CHEAT SHEET LANG TO GUYSSSS, ASK NALANG KAYO SAKIN PAG MAY DI KAYO MA-GETS THANKYOOOOOUUUUUUUUUUUUUUU
 
 print("Welcome to Python Tutorial for Beginners!")
 print("=" * 50)
