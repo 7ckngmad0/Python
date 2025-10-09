@@ -157,6 +157,21 @@ class TicketBookingSystem:
             return self.circular_queue.to_list()
         return self.linear_queue.to_list()
 
+    def clear_all_queues(self):
+        """Clear all queues when switching modes"""
+        # Clear linear queue
+        self.linear_queue = LinearQueue(5)
+        
+        # Clear priority queues
+        self.queue.clear()
+        self.vip_queue.clear()
+        
+        # Clear circular queue
+        self.circular_queue = CircularQueue(self.circular_queue.capacity)
+        
+        # Reset tickets to original count (10)
+        self.tickets = 10
+
 
 class TicketBookingApp:
     def __init__(self, root):
@@ -217,8 +232,14 @@ class TicketBookingApp:
 
         self.update_ui()
 
+    def clear_all_queues(self):
+        """Clear all queues in the system"""
+        self.system.clear_all_queues()
+
     def on_mode_change(self):
         mode = self.mode_var.get()
+        self.clear_all_queues()
+        
         # Toggle UI elements depending on mode
         if mode == "priority":
             self.vip_check.config(state="normal")
